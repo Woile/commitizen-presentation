@@ -26,3 +26,5 @@ npx reveal-md slides.md -w --css style.css
 ```md
 Note: this is a note
 ```
+
+Speaker notes: <kbd>S</kbd>

@@ -115,16 +115,48 @@ Defaults: <!-- .element: class="fragment" data-fragment-index="0" -->
 
 ---
 
-## Fear semver no more
+## Version bump
+
+- Follows SEMVER
+- Calculates new tag based on the commit rules and last tag <!-- .element: class="fragment" data-fragment-index="0" -->
+- Has the ability to create the changelog <!-- .element: class="fragment" data-fragment-index="1" -->
+
 
 ---
 
-## MAJOR.MINOR.PATCH
+## Fear SEMVER no more
+
+- let commitizen handle it for you <!-- .element: class="fragment" data-fragment-index="0" -->
+- it's expressive <!-- .element: class="fragment" data-fragment-index="1" -->
+
+### MAJOR.MINOR.PATCH <!-- .element: class="fragment" data-fragment-index="1" -->
+
+
+----
+
+MAJOR
+
+⬇️
+
+BREAKING CHANGES ⚠️
+
+----
+
+MINOR
+
+⬇️
+
+New stuff 🎉
+
+----
+
+PATCH
+
+⬇️
+
+Secuurity 🔒 and bug fixes 🐛
+
 
 ---
 
-## PATCH
-
----
-
-[conventional_commits]: https://www.conventionalcommits.org/en/v1.0.0/
+## Customizing
