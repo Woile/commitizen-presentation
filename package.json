@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "reveal-md slides.md -w --css style.css"
+  },
+  "dependencies": {
+    "reveal-md": "^4.0.0"
+  }
+}
