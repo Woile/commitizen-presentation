@@ -13,12 +13,24 @@ Automating release cycles
 
 ---
 
+## About me
+
+Santiago
+
+origin: Argentina 🇦🇷 <!-- .element: class="fragment" data-fragment-index="0" -->
+
+current: Amsterdam 🇳🇱 @ KPN <!-- .element: class="fragment" data-fragment-index="0" -->
+
+🐍 python, web, js, stuff <!-- .element: class="fragment" data-fragment-index="0" -->
+
+---
+
 ## Agenda
 
 1. History
 2. Commands <!-- .element: class="fragment" data-fragment-index="2" -->
 3. Automating release cycle <!-- .element: class="fragment" data-fragment-index="3" -->
-4. Customizing <!-- .element: class="fragment" data-fragment-index="4" -->
+4. Customization <!-- .element: class="fragment" data-fragment-index="4" -->
 
 ---
 
@@ -26,15 +38,17 @@ Automating release cycles
 
 Born as a prompt to avoid remembering commit conventions
 
+Based on the js cz-cli
+
 <small>
 conventional commits, work conventions, etc <!-- .element: class="fragment" data-fragment-index="1" -->
 </small>
 
 ---
 
-## Beginning
+## In the Beginning
 
-- Customizable
+- Extendable: build your own rules
 - Automatic version inference planned <!-- .element: class="fragment" data-fragment-index="1" -->
 - Wait, I can also generate the changelog 🤔 <!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -68,7 +82,7 @@ Assists in the creation of the `toml` file, with some automatic detections.
 
 `cz commit` or `cz c`
 
-Assist in the creation of a commit with matching the defined rules.
+🐕‍🦺 Assist in the creation of a commit with matching the defined rules.
 
 Defaults: <!-- .element: class="fragment" data-fragment-index="0" -->
 [conventional commitis](https://www.conventionalcommits.org/en/v1.0.0/) <!-- .element: class="fragment" data-fragment-index="0" -->
@@ -77,9 +91,13 @@ Defaults: <!-- .element: class="fragment" data-fragment-index="0" -->
 
 `cz changelog`
 
+Creates changelog file 📂, can target a different file name
+
 ----
 
 `cz bump --changelog`
+
+Bumps version ⬆️ including the changelog generation 📂
 
 ----
 
@@ -126,37 +144,82 @@ Defaults: <!-- .element: class="fragment" data-fragment-index="0" -->
 
 ## Fear SEMVER no more
 
-- let commitizen handle it for you <!-- .element: class="fragment" data-fragment-index="0" -->
-- it's expressive <!-- .element: class="fragment" data-fragment-index="1" -->
+#### MAJOR.MINOR.PATCH 
 
-### MAJOR.MINOR.PATCH <!-- .element: class="fragment" data-fragment-index="1" -->
+- Let commitizen handle it for you <!-- .element: class="fragment" data-fragment-index="0" -->
+- Contains information <!-- .element: class="fragment" data-fragment-index="1" -->
 
-
-----
-
-MAJOR
-
-⬇️
-
-BREAKING CHANGES ⚠️
 
 ----
 
-MINOR
+## MAJOR
 
-⬇️
+⬇️ <!-- .element: class="fragment" data-fragment-index="0" -->
 
-New stuff 🎉
+BREAKING CHANGES ⚠️ <!-- .element: class="fragment" data-fragment-index="0" -->
 
 ----
 
-PATCH
+### MINOR
 
-⬇️
+⬇️ <!-- .element: class="fragment" data-fragment-index="0" -->
 
-Secuurity 🔒 and bug fixes 🐛
+New stuff 🎉 <!-- .element: class="fragment" data-fragment-index="0" -->
+
+----
+
+#### PATCH
+
+⬇️ <!-- .element: class="fragment" data-fragment-index="0" -->
+
+Secuuurity 🔒 and bug fixes 🐛 <!-- .element: class="fragment" data-fragment-index="0" -->
 
 
 ---
 
-## Customizing
+## Customization
+
+- We have a <!-- .element: class="fragment" data-fragment-index="0" -->
+[template for custom rules](https://github.com/commitizen-tools/commitizen_cz_template) <!-- .element: class="fragment" data-fragment-index="0" -->
+- Bunch of regex for bump <!-- .element: class="fragment" data-fragment-index="1" -->
+- Changelog should work by default, best if a regex is provided <!-- .element: class="fragment" data-fragment-index="2" -->
+
+Read the 
+[documentation](https://commitizen-tools.github.io/commitizen/)
+
+
+---
+
+## Future
+
+- Support for other config format files: `json`
+- Github action
+- Sprint on next europython
+
+---
+
+## Recap
+
+```bash
+# on an initialized git repo
+cz init
+git add <file>
+cz c
+cz bump --changelog
+```
+
+---
+
+## Demo
+
+---
+
+## Questions 🙋🙋‍♀️
+
+---
+
+![thanks](./assets/thanks.gif)
+
+twitter: [@santiwilly](twitter.com/santiwilly)
+
+github: [woile](github.com/Woile)
