@@ -211,8 +211,6 @@ Bumps version ⬆️ including the changelog generation 📂
 
 ## Fear SEMVER no more
 
-#### MAJOR.MINOR.PATCH
-
 - Let commitizen handle it for you <!-- .element: class="fragment" data-fragment-index="0" -->
 - Contains information <!-- .element: class="fragment" data-fragment-index="1" -->
 
@@ -240,6 +238,11 @@ New stuff 🎉 <!-- .element: class="fragment" data-fragment-index="0" -->
 
 Secuuurity 🔒 and bug fixes 🐛 <!-- .element: class="fragment" data-fragment-index="0" -->
 
+----
+
+MAJOR.MINOR.PATCH
+
+## 2.23.3
 
 ---
 
@@ -247,12 +250,11 @@ Secuuurity 🔒 and bug fixes 🐛 <!-- .element: class="fragment" data-fragment
 
 - We have a <!-- .element: class="fragment" data-fragment-index="0" -->
 [template for custom rules](https://github.com/commitizen-tools/commitizen_cz_template) <!-- .element: class="fragment" data-fragment-index="0" -->
-- 2 regexs for bump (find `change_type` and map it to semver)<!-- .element: class="fragment" data-fragment-index="1" -->
+- 2 regexs for bump (find change_type and map it to semver)<!-- .element: class="fragment" data-fragment-index="1" -->
 - Changelog should work by default, best if a regex is provided <!-- .element: class="fragment" data-fragment-index="2" -->
 
 Read the
 [documentation](https://commitizen-tools.github.io/commitizen/)
-
 
 ---
 
