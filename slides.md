@@ -28,8 +28,8 @@ current: Amsterdam 🇳🇱 @ KPN <!-- .element: class="fragment" data-fragment-
 ## Agenda
 
 1. History
-2. Commands <!-- .element: class="fragment" data-fragment-index="2" -->
-3. Automating release cycle <!-- .element: class="fragment" data-fragment-index="3" -->
+2. Release workflow <!-- .element: class="fragment" data-fragment-index="2" -->
+3. Commitizen <!-- .element: class="fragment" data-fragment-index="3" -->
 4. Customization <!-- .element: class="fragment" data-fragment-index="4" -->
 
 ---
@@ -68,6 +68,75 @@ I found motivation again and finished the auto-changelog feature <!-- .element: 
 
 ---
 
+## Release workflow
+
+🧑 Merge PR
+
+⬇️ <!-- .element: class="fragment" data-fragment-index="0" -->
+
+> 🤖 Bump version and generate changelog <!-- .element: class="fragment" data-fragment-index="0" -->
+
+⬇️ <!-- .element: class="fragment" data-fragment-index="1" -->
+
+🤖 Push back to your branch <!-- .element: class="fragment" data-fragment-index="1" -->
+
+⬇️ <!-- .element: class="fragment" data-fragment-index="2" -->
+
+🤖 Trigger deploy/release for new tag <!-- .element: class="fragment" data-fragment-index="2" -->
+
+---
+
+## Example GH actions
+
+```bash
+.
+├── bump-version.yml
+├── publish-docs.yaml
+├── pr-checks.yml
+└── publish-package.yaml
+```
+
+----
+
+PR checks
+
+```yaml
+on: [pull_request]
+```
+
+Bump version
+
+```yaml
+on:
+  push:
+    branches:
+      - trunk
+```
+
+Publish package + Documentation
+
+```yaml
+on:
+  push:
+    tags:
+      - 'v*'
+```
+
+---
+
+# Commitizen
+
+---
+
+### Version ⬆️ + changelog 📂
+
+Key elements of a release
+
+- Relevant version
+- What has been introduced?
+
+---
+
 ## Commands
 
 > Aim for intuitiveness and sane defaults
@@ -78,14 +147,27 @@ I found motivation again and finished the auto-changelog feature <!-- .element: 
 
 Assists in the creation of the `toml` file, with some automatic detections.
 
+```toml
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.15.3"
+version_files = [
+  "VERSION"
+]
+```
+
+🧪 project setup <!-- .element: class="fragment" data-fragment-index="0" -->
+
 ----
 
 `cz commit` or `cz c`
 
-🐕‍🦺 Assist in the creation of a commit with matching the defined rules.
+🐕‍🦺 Assist in the creation of a commit by matching the defined rules.
 
 Defaults: <!-- .element: class="fragment" data-fragment-index="0" -->
 [conventional commitis](https://www.conventionalcommits.org/en/v1.0.0/) <!-- .element: class="fragment" data-fragment-index="0" -->
+
+🧪 development <!-- .element: class="fragment" data-fragment-index="0" -->
 
 ----
 
@@ -93,11 +175,15 @@ Defaults: <!-- .element: class="fragment" data-fragment-index="0" -->
 
 Creates changelog file 📂, can target a different file name
 
+🧪 optional <!-- .element: class="fragment" data-fragment-index="0" -->
+
 ----
 
 `cz bump --changelog`
 
 Bumps version ⬆️ including the changelog generation 📂
+
+🧪 CI <!-- .element: class="fragment" data-fragment-index="0" -->
 
 ----
 
@@ -115,40 +201,20 @@ Bumps version ⬆️ including the changelog generation 📂
 
 ---
 
-## Release workflow
-
-🧑 Merge PR
-
-⬇️ <!-- .element: class="fragment" data-fragment-index="0" -->
-
-🤖 Create changelog and new tag <!-- .element: class="fragment" data-fragment-index="0" -->
-
-⬇️ <!-- .element: class="fragment" data-fragment-index="1" -->
-
-🤖 Push back to your branch <!-- .element: class="fragment" data-fragment-index="1" -->
-
-⬇️ <!-- .element: class="fragment" data-fragment-index="2" -->
-
-🤖 Trigger deploy/release for new tag <!-- .element: class="fragment" data-fragment-index="2" -->
-
----
-
 ## Version bump
 
 - Follows SEMVER
 - Calculates new tag based on the commit rules and last tag <!-- .element: class="fragment" data-fragment-index="0" -->
 - Has the ability to create the changelog <!-- .element: class="fragment" data-fragment-index="1" -->
 
-
 ---
 
 ## Fear SEMVER no more
 
-#### MAJOR.MINOR.PATCH 
+#### MAJOR.MINOR.PATCH
 
 - Let commitizen handle it for you <!-- .element: class="fragment" data-fragment-index="0" -->
 - Contains information <!-- .element: class="fragment" data-fragment-index="1" -->
-
 
 ----
 
@@ -181,10 +247,10 @@ Secuuurity 🔒 and bug fixes 🐛 <!-- .element: class="fragment" data-fragment
 
 - We have a <!-- .element: class="fragment" data-fragment-index="0" -->
 [template for custom rules](https://github.com/commitizen-tools/commitizen_cz_template) <!-- .element: class="fragment" data-fragment-index="0" -->
-- Bunch of regex for bump <!-- .element: class="fragment" data-fragment-index="1" -->
+- 2 regexs for bump (find `change_type` and map it to semver)<!-- .element: class="fragment" data-fragment-index="1" -->
 - Changelog should work by default, best if a regex is provided <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Read the 
+Read the
 [documentation](https://commitizen-tools.github.io/commitizen/)
 
 
